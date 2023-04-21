@@ -3,32 +3,30 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 import Navbar from "./components/navbar"
-import {ExercisesList} from "./pages/exercises-list";
-import {EditExercise} from "./pages/edit-exercise";
-import CreateExercise from "./pages/create-exercise";
-import CreateUser from "./pages/create-user";
+import LogBook from "./pages/log-book";
+import SignLogBook from "./pages/sign-log-book";
 
+// 1
 import {EstateProvider} from 'estate-react';
-import {createEstateClient} from "exercise-tracker-service";
-
-// Create your estate client at the app-level, so it retains its state whilst the user is on the site.
+import {createEstateClient} from "log-book-service";
 const estateClient = createEstateClient();
 
 function App() {
-    return (
+    return (        
+        // 2
         <EstateProvider client={estateClient}>
+
             <BrowserRouter>
                 <div className="container">
                     <Navbar/>
                     <br/>
                     <Routes>
-                        <Route index path="/" element={<ExercisesList/>}/>
-                        <Route path="/edit/:id" element={<EditExercise/>}/>
-                        <Route path="/create" element={<CreateExercise/>}/>
-                        <Route path="/user" element={<CreateUser/>}/>
+                        <Route index path="/" element={<LogBook/>}/>
+                        <Route path="/sign" element={<SignLogBook/>}/>
                     </Routes>
                 </div>
             </BrowserRouter>
+
         </EstateProvider>
     );
 }

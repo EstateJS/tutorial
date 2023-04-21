@@ -4,17 +4,14 @@ import {Link} from 'react-router-dom';
 export default function Navbar() {
     return (
         <nav className="navbar navbar-dark bg-dark navbar-expand">
-            <Link to="/" className="navbar-brand">Exercise Tracker</Link>
+            <Link to="/" className="navbar-brand">Visitor's Log</Link>
             <div className="collapse navbar-collapse">
                 <ul className="navbar-nav mr-auto">
                     <li className="navbar-item">
-                        <Link to="/" className="nav-link">Exercises</Link>
+                        <Link to="/" className="nav-link">Visitors</Link>
                     </li>
                     <li className="navbar-item">
-                        <Link to="/create" className="nav-link">Create Exercise Log</Link>
-                    </li>
-                    <li className="navbar-item">
-                        <Link to="/user" className="nav-link">Create User</Link>
+                        <Link to="/sign" className="nav-link">Sign</Link>
                     </li>
                 </ul>
             </div>
