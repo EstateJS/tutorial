@@ -11,13 +11,7 @@ export default function LogBookEntries() {
     
     useEffect(() => {
         
-        // 4
-        logBook.getEntries()
-            .then((values: Entry[]) => {
-                setEntries(values);
-            }).catch((reason: any) => {
-                console.error(reason)
-            });
+        //4
 
     },[]);
 

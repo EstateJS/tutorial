@@ -4,8 +4,6 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
 //1
-import {useEstateClient} from "estate-react";
-import {Entry, LogBook} from 'log-book-service';
 
 export default function SignLogBook() {
     const [name, setName] = useState<string>();
@@ -13,20 +11,11 @@ export default function SignLogBook() {
     const [redirect, setRedirect] = useState<Boolean>(false);
 
     //2
-    const estate = useEstateClient();
-    const logBook = estate.getWorker(LogBook, "default");
 
     function handleOnSubmit(e: any) {
         e.preventDefault();
 
         //3
-        const entry = new Entry(name!, date!);        
-        logBook.addEntry(entry)
-            .then(() => {
-                setRedirect(true);
-            }).catch((reason: any) => {
-                console.error(reason)
-            });
     }
 
     if(redirect) {
