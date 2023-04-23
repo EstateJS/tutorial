@@ -1,5 +1,5 @@
 {
-  "name": "exercise-tracker",
+  "name": "visitors-log",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -17,7 +17,8 @@
     "react-datepicker": "^4.10.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.9.0",
-    "react-select": "^5.7.2"
+    "react-select": "^5.7.2",
+    "log-book-service": "file:./.estate/generated-clients/log-book"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

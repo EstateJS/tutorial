@@ -1,20 +1,17 @@
-import React, {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
+import {useEffect, useState} from 'react';
 
-// 1
 import {useEstateClient} from "estate-react";
 import {Entry, LogBook} from 'log-book-service';
 
-export default function LogBook() {    
-    
-    // 2
+export default function LogBookEntries() {    
+
     const estate = useEstateClient();
     const logBook = estate.getWorker(LogBook, 'default');
     const [entries, setEntries] = useState<Entry[]>([]);
     
     useEffect(() => {
         
-        // 3
+        // 4
         logBook.getEntries()
             .then((values: Entry[]) => {
                 setEntries(values);
@@ -26,7 +23,7 @@ export default function LogBook() {
 
     return (
         <div>
-            <h3>Visitors Log Book</h3>
+            <h4>Log Book Entries</h4>
             <table className="table">
                 <thead className="thead-light">
                 <tr>
@@ -53,7 +50,7 @@ interface EntryItemProps {
 function EntryItem(props: EntryItemProps) {
     return (
         <tr>
-            <td>{props.entry.name}</td>
+            <td>{props.entry.firstName}</td>
             <td>{props.entry.date.toString().substring(0, 10)}</td>
         </tr>
     );

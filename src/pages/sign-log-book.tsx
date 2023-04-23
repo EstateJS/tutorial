@@ -1,7 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import {useState} from 'react';
 import {Navigate} from "react-router-dom";
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
-// 1
+//1
 import {useEstateClient} from "estate-react";
 import {Entry, LogBook} from 'log-book-service';
 
@@ -10,14 +12,14 @@ export default function SignLogBook() {
     const [date, setDate] = useState<Date>();
     const [redirect, setRedirect] = useState<Boolean>(false);
 
-    // 2
+    //2
     const estate = useEstateClient();
     const logBook = estate.getWorker(LogBook, "default");
 
     function handleOnSubmit(e: any) {
         e.preventDefault();
 
-        // 3
+        //3
         const entry = new Entry(name!, date!);        
         logBook.addEntry(entry)
             .then(() => {
@@ -33,7 +35,7 @@ export default function SignLogBook() {
 
     return (
         <div>
-            <h3>Sign the Visitor's Log</h3>            
+            <h4>Sign the Log Book</h4>
             <form onSubmit={handleOnSubmit}>
                 <div className="form-group">
                     <label>Name: </label>
